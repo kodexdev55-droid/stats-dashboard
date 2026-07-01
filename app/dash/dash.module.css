@@ -1,55 +1,58 @@
 .page {
   min-height: 100vh;
-  background: #F8FAFC;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #F2F4F7;
+  font-family: var(--font-sora), 'Sora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #0F172A;
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
 
 .header {
-  background: #0F172A;
+  background: #0B0311;
+  border-bottom: 1px solid rgba(139,92,246,0.25);
   padding: 14px 28px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.brand {
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+.brandLogo {
+  display: block;
+  height: 36px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .pipe {
   display: block;
   width: 1px;
   height: 14px;
-  background: #334155;
+  background: rgba(139,92,246,0.35);
   flex-shrink: 0;
 }
 
 .headerSub {
-  color: #94A3B8;
+  color: #FFFFFF;
   font-size: 12px;
 }
 
 /* ── Main ────────────────────────────────────────────────────── */
 
 .main {
-  padding: 28px 20px 52px;
-  max-width: 860px;
+  padding: 44px clamp(20px, 5vw, 80px) 64px;
+  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 24px;
 }
 
 .clientName {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  color: #1E293B;
+  color: #0F172A;
   margin: 0 0 2px;
   letter-spacing: -0.02em;
 }
@@ -58,18 +61,24 @@
 
 .card {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  padding: 20px 22px;
-  box-shadow: 0 1px 3px rgba(15,23,42,0.05),
-              0 4px 12px rgba(15,23,42,0.04);
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06),
+              0 1px 2px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  border-color: #D1D5DB;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.08);
 }
 
 .card:focus-within {
-  outline: 2px solid #2563EB;
+  outline: 2px solid #8B5CF6;
   outline-offset: 2px;
 }
 
@@ -80,15 +89,15 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #6B7280;
 }
 
-/* ── 3-column stat grid ──────────────────────────────────────── */
+/* ── 2x2 stat grid ───────────────────────────────────────────── */
 
 .statsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
   align-items: stretch;
 }
 
@@ -105,14 +114,7 @@
 /* ── Reply Rate card ─────────────────────────────────────────── */
 
 .rateCard {
-  border-top: 3px solid #2563EB;
-}
-
-/* ring + big % sit side by side */
-.rateRow {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  border-top: 3px solid #8B5CF6;
 }
 
 .rateNum {
@@ -126,17 +128,62 @@
   white-space: nowrap;
 }
 
-/* ── Mini ring ───────────────────────────────────────────────── */
+/* ── Count-up numbers ────────────────────────────────────────── */
 
-.miniRingWrap {
-  flex-shrink: 0;
-  display: block;
+.countUp {
+  font-variant-numeric: tabular-nums;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .ringArc {
-    transition: stroke-dashoffset 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+/* ── Wavy trend chart ────────────────────────────────────────── */
+
+.stockChartBox {
+  width: 100%;
+  height: 96px;
+  margin-top: 2px;
+  border-radius: 8px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(139,92,246,0.045) 0px,
+    rgba(139,92,246,0.045) 14px,
+    transparent 14px,
+    transparent 28px
+  );
+  cursor: crosshair;
+}
+
+/* Full-sized analytics chart — Connections Accepted only. Deliberately
+   separate from .stockChartBox so no other chart's size is affected. */
+.stockChartBoxLarge {
+  width: 100%;
+  height: 250px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: crosshair;
+}
+
+.chartTooltip {
+  background: #0F172A;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.statNumWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.statCaption {
+  font-size: 0.75rem;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Breakdown bars ──────────────────────────────────────────── */
@@ -158,11 +205,14 @@
 .barName {
   font-size: 12px;
   color: #64748B;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .barTrack {
   height: 8px;
-  background: #F1F5F9;
+  background: #E5E7EB;
   border-radius: 99px;
   overflow: hidden;
 }
@@ -172,8 +222,15 @@
   border-radius: 99px;
 }
 
-.barMuted { background: #CBD5E1; }
-.barBlue  { background: #2563EB; }
+.barMuted { background: #94A3B8; }
+.barBlue  { background: linear-gradient(135deg, #8B5CF6, #EC4899); }
+
+/* KPI-card mini bar charts — same family, lighter shade for total/denominator bars */
+.barLight      { background: #C4B5FD; }
+.barPurple     { background: #8B5CF6; }
+.barGreenLight { background: #A7F3D0; }
+.barGreen      { background: #34D399; }
+.barRisk       { background: #FB7185; }
 
 @media (prefers-reduced-motion: no-preference) {
   .barFill {
@@ -183,8 +240,8 @@
 
 .barVal {
   font-size: 12px;
-  font-weight: 500;
-  color: #374151;
+  font-weight: 600;
+  color: #0F172A;
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
@@ -193,7 +250,7 @@
 
 .updated {
   font-size: 11px;
-  color: #94A3B8;
+  color: #64748B;
   margin: 2px 0 0;
 }
 
@@ -206,7 +263,7 @@
 .emptyTitle {
   font-size: 15px;
   font-weight: 600;
-  color: #334155;
+  color: #0F172A;
   margin: 0 0 8px;
 }
 
@@ -224,13 +281,13 @@
   padding: 1px 5px;
   font-size: 12px;
   font-family: 'SF Mono', ui-monospace, monospace;
-  color: #334155;
+  color: #0F172A;
 }
 
 .errorDetail {
   margin: 14px 0 0;
   font-size: 11px;
-  color: #94A3B8;
+  color: #64748B;
   font-family: 'SF Mono', ui-monospace, monospace;
   word-break: break-all;
 }
@@ -244,12 +301,12 @@
 
 .sk {
   border-radius: 5px;
-  background: #E2E8F0;
+  background: #E5E7EB;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .sk {
-    background: linear-gradient(90deg, #E2E8F0 25%, #EEF2F7 50%, #E2E8F0 75%);
+    background: linear-gradient(90deg, #E5E7EB 25%, #F1F5F9 50%, #E5E7EB 75%);
     background-size: 1200px 100%;
     animation: shimmer 1.5s ease infinite;
   }
@@ -259,7 +316,7 @@
 .skLabel    { width: 88px;  height: 10px; }
 .skNum      { width: 80px;  height: 36px; margin-top: 2px; }
 .skNumLg    { width: 90px;  height: 38px; }
-.skRing     { width: 56px;  height: 56px; border-radius: 50%; flex-shrink: 0; }
+.skStockChart { width: 100%; height: 96px; margin-top: 2px; }
 .skMeta     { width: 150px; height: 11px; margin-top: 2px; }
 .skBarName  { width: 54px;  height: 12px; }
 .skBarTrack { height: 8px;  border-radius: 99px; }
@@ -268,20 +325,30 @@
 /* ── Section headings ────────────────────────────────────────── */
 
 .sectionHeading {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0F172A;
   margin: 0;
+}
+
+.sectionHeadingBar {
+  display: inline-block;
+  width: 6px;
+  height: 1.1em;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 /* ── Section divider ─────────────────────────────────────────── */
 
 .divider {
   height: 1px;
-  background: #E2E8F0;
-  margin: 4px 0;
+  background: #E5E7EB;
+  margin: 8px 0;
 }
 
 /* ── Section-level notice (not-found / error inline) ─────────── */
@@ -290,61 +357,59 @@
   padding: 16px 0 4px;
 }
 
-/* ── Email 4-column grid ─────────────────────────────────────── */
+/* ── Email 2x2 grid ──────────────────────────────────────────── */
 
 .emailGrid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
   align-items: stretch;
 }
 
-/* Bounce Rate — amber accent (signals: monitor this) */
+/* Bounce Rate — risk accent (signals: watch this number) */
 .bounceCard {
-  border-top: 3px solid #D97706;
+  border-top: 3px solid #FB7185;
 }
 
-/* Interested Replies — emerald accent (signals: positive) */
+/* Interested Replies — success accent (signals: positive) */
 .interestedCard {
-  border-top: 3px solid #059669;
+  border-top: 3px solid #34D399;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */
 
-/* Tablet */
-@media (max-width: 600px) {
-  .statsGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .rateCard {
-    grid-column: 1 / -1;
-  }
-  .rateRow  { gap: 20px; }
-  .rateNum  { font-size: 42px; }
-
-  .emailGrid {
-    grid-template-columns: 1fr 1fr;
+/* Tablet / small desktop — the 2x2 grid already fits comfortably down to
+   this range since each card stacks its content vertically (no more
+   side-by-side ring+number row needing extra width). */
+@media (max-width: 1120px) {
+  .main {
+    padding: 32px 28px 48px;
   }
 }
 
-/* Mobile */
-@media (max-width: 380px) {
+/* Mobile — collapse the 2x2 grid to a single column */
+@media (max-width: 480px) {
   .main {
-    padding: 20px 14px 48px;
-    gap: 12px;
+    padding: 24px 20px 40px;
+    gap: 20px;
   }
   .statsGrid,
   .emailGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
-  .rateCard {
-    grid-column: auto;
-  }
+  .card { padding: 20px; }
   .statNum  { font-size: 30px; }
   .rateNum  { font-size: 34px; }
-  .barRow   { grid-template-columns: 46px 1fr 52px; gap: 8px; }
+  .barRow   { grid-template-columns: 58px 1fr 46px; gap: 6px; }
+  .header     { padding: 12px 16px; gap: 10px; }
+  .brandLogo  { height: 26px; }
+  .headerSub  { font-size: 11px; }
+  .sectionHeading    { font-size: 19px; gap: 9px; }
+  .sectionHeadingBar { width: 5px; }
+  .stockChartBoxLarge { height: 220px; }
 }
 
 /* ── Skeleton additions ───────────────────────────────────────── */
 
-.skSectionHeading { width: 140px; height: 11px; }
+.skSectionHeading { width: 200px; height: 22px; }
