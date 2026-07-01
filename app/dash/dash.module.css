@@ -1,0 +1,350 @@
+.page {
+  min-height: 100vh;
+  background: #F8FAFC;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #0F172A;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.header {
+  background: #0F172A;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.pipe {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: #334155;
+  flex-shrink: 0;
+}
+
+.headerSub {
+  color: #94A3B8;
+  font-size: 12px;
+}
+
+/* ── Main ────────────────────────────────────────────────────── */
+
+.main {
+  padding: 28px 20px 52px;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.clientName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1E293B;
+  margin: 0 0 2px;
+  letter-spacing: -0.02em;
+}
+
+/* ── Card ────────────────────────────────────────────────────── */
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.05),
+              0 4px 12px rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card:focus-within {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* ── Label ───────────────────────────────────────────────────── */
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+/* ── 3-column stat grid ──────────────────────────────────────── */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* stat numbers (connections, replies) */
+.statNum {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0F172A;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* ── Reply Rate card ─────────────────────────────────────────── */
+
+.rateCard {
+  border-top: 3px solid #2563EB;
+}
+
+/* ring + big % sit side by side */
+.rateRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rateNum {
+  font-size: 38px;
+  font-weight: 800;
+  color: #0F172A;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  /* don't wrap no matter how long */
+  white-space: nowrap;
+}
+
+/* ── Mini ring ───────────────────────────────────────────────── */
+
+.miniRingWrap {
+  flex-shrink: 0;
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ringArc {
+    transition: stroke-dashoffset 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* ── Breakdown bars ──────────────────────────────────────────── */
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 54px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+}
+
+.barName {
+  font-size: 12px;
+  color: #64748B;
+}
+
+.barTrack {
+  height: 8px;
+  background: #F1F5F9;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+.barMuted { background: #CBD5E1; }
+.barBlue  { background: #2563EB; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .barFill {
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.barVal {
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ── Last updated ────────────────────────────────────────────── */
+
+.updated {
+  font-size: 11px;
+  color: #94A3B8;
+  margin: 2px 0 0;
+}
+
+/* ── Empty / Error states ────────────────────────────────────── */
+
+.empty {
+  padding: 52px 0 0;
+}
+
+.emptyTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 8px;
+}
+
+.emptyBody {
+  font-size: 13px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.emptyBody code {
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 12px;
+  font-family: 'SF Mono', ui-monospace, monospace;
+  color: #334155;
+}
+
+.errorDetail {
+  margin: 14px 0 0;
+  font-size: 11px;
+  color: #94A3B8;
+  font-family: 'SF Mono', ui-monospace, monospace;
+  word-break: break-all;
+}
+
+/* ── Skeleton shimmer ────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+.sk {
+  border-radius: 5px;
+  background: #E2E8F0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sk {
+    background: linear-gradient(90deg, #E2E8F0 25%, #EEF2F7 50%, #E2E8F0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 1.5s ease infinite;
+  }
+}
+
+.skName     { width: 180px; height: 22px; margin-bottom: 2px; }
+.skLabel    { width: 88px;  height: 10px; }
+.skNum      { width: 80px;  height: 36px; margin-top: 2px; }
+.skNumLg    { width: 90px;  height: 38px; }
+.skRing     { width: 56px;  height: 56px; border-radius: 50%; flex-shrink: 0; }
+.skMeta     { width: 150px; height: 11px; margin-top: 2px; }
+.skBarName  { width: 54px;  height: 12px; }
+.skBarTrack { height: 8px;  border-radius: 99px; }
+.skBarVal   { width: 40px;  height: 12px; }
+
+/* ── Section headings ────────────────────────────────────────── */
+
+.sectionHeading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748B;
+  margin: 0;
+}
+
+/* ── Section divider ─────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: #E2E8F0;
+  margin: 4px 0;
+}
+
+/* ── Section-level notice (not-found / error inline) ─────────── */
+
+.sectionNotice {
+  padding: 16px 0 4px;
+}
+
+/* ── Email 4-column grid ─────────────────────────────────────── */
+
+.emailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* Bounce Rate — amber accent (signals: monitor this) */
+.bounceCard {
+  border-top: 3px solid #D97706;
+}
+
+/* Interested Replies — emerald accent (signals: positive) */
+.interestedCard {
+  border-top: 3px solid #059669;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rateCard {
+    grid-column: 1 / -1;
+  }
+  .rateRow  { gap: 20px; }
+  .rateNum  { font-size: 42px; }
+
+  .emailGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 380px) {
+  .main {
+    padding: 20px 14px 48px;
+    gap: 12px;
+  }
+  .statsGrid,
+  .emailGrid {
+    grid-template-columns: 1fr;
+  }
+  .rateCard {
+    grid-column: auto;
+  }
+  .statNum  { font-size: 30px; }
+  .rateNum  { font-size: 34px; }
+  .barRow   { grid-template-columns: 46px 1fr 52px; gap: 8px; }
+}
+
+/* ── Skeleton additions ───────────────────────────────────────── */
+
+.skSectionHeading { width: 140px; height: 11px; }
