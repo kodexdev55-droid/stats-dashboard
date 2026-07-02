@@ -39,21 +39,21 @@
 /* ── Main ────────────────────────────────────────────────────── */
 
 .main {
-  padding: 44px clamp(20px, 5vw, 80px) 64px;
+  padding: 18px clamp(16px, 4vw, 44px) 20px;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .clientName {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #0F172A;
-  margin: 0 0 2px;
+  margin: 0;
   letter-spacing: -0.02em;
 }
 
@@ -62,13 +62,13 @@
 .card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 16px;
-  padding: 26px;
+  border-radius: 12px;
+  padding: 14px 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06),
               0 1px 2px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -97,13 +97,13 @@
 .statsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  gap: 12px;
   align-items: stretch;
 }
 
 /* stat numbers (connections, replies) */
 .statNum {
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 700;
   color: #0F172A;
   font-variant-numeric: tabular-nums;
@@ -118,13 +118,12 @@
 }
 
 .rateNum {
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 800;
   color: #0F172A;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.04em;
   line-height: 1;
-  /* don't wrap no matter how long */
   white-space: nowrap;
 }
 
@@ -138,9 +137,9 @@
 
 .stockChartBox {
   width: 100%;
-  height: 96px;
-  margin-top: 2px;
-  border-radius: 8px;
+  height: 62px;
+  margin-top: 0;
+  border-radius: 6px;
   background-image: repeating-linear-gradient(
     90deg,
     rgba(139,92,246,0.045) 0px,
@@ -151,13 +150,11 @@
   cursor: crosshair;
 }
 
-/* Full-sized analytics chart — Connections Accepted only. Deliberately
-   separate from .stockChartBox so no other chart's size is affected. */
 .stockChartBoxLarge {
   width: 100%;
-  height: 250px;
-  margin-top: 10px;
-  border-radius: 8px;
+  height: 80px;
+  margin-top: 0;
+  border-radius: 6px;
   cursor: crosshair;
 }
 
@@ -179,7 +176,7 @@
 }
 
 .statCaption {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #64748B;
   white-space: nowrap;
   overflow: hidden;
@@ -191,8 +188,8 @@
 .bars {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-top: 2px;
+  gap: 10px;
+  margin-top: 0;
 }
 
 .barRow {
@@ -211,7 +208,7 @@
 }
 
 .barTrack {
-  height: 8px;
+  height: 7px;
   background: #E5E7EB;
   border-radius: 99px;
   overflow: hidden;
@@ -225,7 +222,6 @@
 .barMuted { background: #94A3B8; }
 .barBlue  { background: linear-gradient(135deg, #8B5CF6, #EC4899); }
 
-/* KPI-card mini bar charts — same family, lighter shade for total/denominator bars */
 .barLight      { background: #C4B5FD; }
 .barPurple     { background: #8B5CF6; }
 .barGreenLight { background: #A7F3D0; }
@@ -251,7 +247,7 @@
 .updated {
   font-size: 11px;
   color: #64748B;
-  margin: 2px 0 0;
+  margin: 0;
 }
 
 /* ── Empty / Error states ────────────────────────────────────── */
@@ -312,14 +308,14 @@
   }
 }
 
-.skName     { width: 180px; height: 22px; margin-bottom: 2px; }
+.skName     { width: 180px; height: 18px; margin-bottom: 0; }
 .skLabel    { width: 88px;  height: 10px; }
-.skNum      { width: 80px;  height: 36px; margin-top: 2px; }
-.skNumLg    { width: 90px;  height: 38px; }
-.skStockChart { width: 100%; height: 96px; margin-top: 2px; }
-.skMeta     { width: 150px; height: 11px; margin-top: 2px; }
+.skNum      { width: 80px;  height: 26px; margin-top: 2px; }
+.skNumLg    { width: 90px;  height: 28px; }
+.skStockChart { width: 100%; height: 62px; margin-top: 0; }
+.skMeta     { width: 150px; height: 11px; margin-top: 0; }
 .skBarName  { width: 54px;  height: 12px; }
-.skBarTrack { height: 8px;  border-radius: 99px; }
+.skBarTrack { height: 7px;  border-radius: 99px; }
 .skBarVal   { width: 40px;  height: 12px; }
 
 /* ── Section headings ────────────────────────────────────────── */
@@ -327,8 +323,8 @@
 .sectionHeading {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: clamp(20px, 2.4vw, 26px);
+  gap: 9px;
+  font-size: 16px;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: #0F172A;
@@ -337,7 +333,7 @@
 
 .sectionHeadingBar {
   display: inline-block;
-  width: 6px;
+  width: 5px;
   height: 1.1em;
   border-radius: 4px;
   flex-shrink: 0;
@@ -348,13 +344,13 @@
 .divider {
   height: 1px;
   background: #E5E7EB;
-  margin: 8px 0;
+  margin: 0;
 }
 
 /* ── Section-level notice (not-found / error inline) ─────────── */
 
 .sectionNotice {
-  padding: 16px 0 4px;
+  padding: 12px 0 4px;
 }
 
 /* ── Email 2x2 grid ──────────────────────────────────────────── */
@@ -362,54 +358,50 @@
 .emailGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  gap: 12px;
   align-items: stretch;
 }
 
-/* Bounce Rate — risk accent (signals: watch this number) */
+/* Bounce Rate — risk accent */
 .bounceCard {
   border-top: 3px solid #FB7185;
 }
 
-/* Interested Replies — success accent (signals: positive) */
+/* Interested Replies — success accent */
 .interestedCard {
   border-top: 3px solid #34D399;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */
 
-/* Tablet / small desktop — the 2x2 grid already fits comfortably down to
-   this range since each card stacks its content vertically (no more
-   side-by-side ring+number row needing extra width). */
 @media (max-width: 1120px) {
   .main {
-    padding: 32px 28px 48px;
+    padding: 16px 20px 18px;
   }
 }
 
-/* Mobile — collapse the 2x2 grid to a single column */
 @media (max-width: 480px) {
   .main {
-    padding: 24px 20px 40px;
-    gap: 20px;
+    padding: 16px 14px 16px;
+    gap: 10px;
   }
   .statsGrid,
   .emailGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 10px;
   }
-  .card { padding: 20px; }
-  .statNum  { font-size: 30px; }
-  .rateNum  { font-size: 34px; }
+  .card { padding: 14px; }
+  .statNum  { font-size: 24px; }
+  .rateNum  { font-size: 26px; }
   .barRow   { grid-template-columns: 58px 1fr 46px; gap: 6px; }
   .header     { padding: 12px 16px; gap: 10px; }
   .brandLogo  { height: 26px; }
   .headerSub  { font-size: 11px; }
-  .sectionHeading    { font-size: 19px; gap: 9px; }
-  .sectionHeadingBar { width: 5px; }
-  .stockChartBoxLarge { height: 220px; }
+  .sectionHeading    { font-size: 14px; gap: 8px; }
+  .sectionHeadingBar { width: 4px; }
+  .stockChartBoxLarge { height: 60px; }
 }
 
 /* ── Skeleton additions ───────────────────────────────────────── */
 
-.skSectionHeading { width: 200px; height: 22px; }
+.skSectionHeading { width: 180px; height: 16px; }

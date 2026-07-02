@@ -402,15 +402,13 @@ function LinkedInSection({ state }: { state: SectionState<ClientStats> }) {
         <div className={s.card}>
           <span className={s.label}>Connections Accepted</span>
           <span className={s.statNum}><CountUp value={stats.total_connections} /></span>
-          {/* No distinct "Sent" value exists apart from total_connections — both points below reuse it */}
           <StockChart
             id="stockConnectionsAccepted"
             label="Connections Accepted"
             seed={1}
-            showAxis
             points={[
-              { name: 'Sent', value: stats.total_connections },
-              { name: 'Accepted', value: stats.total_connections },
+              { name: 'Campaign Start', value: 0 },
+              { name: 'Connections Accepted', value: stats.total_connections },
             ]}
             color="#8B5CF6"
           />
@@ -425,9 +423,8 @@ function LinkedInSection({ state }: { state: SectionState<ClientStats> }) {
             id="stockTotalReplies"
             label="Total Replies"
             seed={2}
-            showAxis
             points={[
-              { name: 'Accepted', value: stats.total_connections },
+              { name: 'Connections', value: stats.total_connections },
               { name: 'Replied', value: stats.total_replies },
             ]}
             color="#8B5CF6"
@@ -478,15 +475,13 @@ function EmailSection({ state }: { state: SectionState<ClientEmailStats> }) {
         <div className={s.card}>
           <span className={s.label}>Replies</span>
           <span className={s.statNum}><CountUp value={data.total_replies} /></span>
-          {/* No distinct "Sent" value exists apart from total_replies — both points below reuse it */}
           <StockChart
             id="stockReplies"
             label="Replies"
             seed={3}
-            showAxis
             points={[
-              { name: 'Sent', value: data.total_replies },
-              { name: 'Replied', value: data.total_replies },
+              { name: 'Campaign Start', value: 0 },
+              { name: 'Replies', value: data.total_replies },
             ]}
             color="#8B5CF6"
           />
@@ -498,10 +493,8 @@ function EmailSection({ state }: { state: SectionState<ClientEmailStats> }) {
             id="stockEmailReplyRate"
             label="Reply Rate"
             seed={5}
-            showAxis
-            percent
             points={[
-              { name: 'Start', value: data.reply_rate * 100 },
+              { name: 'Campaign Start', value: 0 },
               { name: 'Reply Rate', value: data.reply_rate * 100 },
             ]}
             color="#8B5CF6"
@@ -522,9 +515,8 @@ function EmailSection({ state }: { state: SectionState<ClientEmailStats> }) {
             id="stockInterestedReplies"
             label="Interested Replies"
             seed={4}
-            showAxis
             points={[
-              { name: 'Total', value: data.total_replies },
+              { name: 'Total Replies', value: data.total_replies },
               { name: 'Interested', value: data.interested_replies },
             ]}
             color="#34D399"
@@ -541,11 +533,11 @@ function EmailSection({ state }: { state: SectionState<ClientEmailStats> }) {
 function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className={s.page}>
-      <header className={s.header}>
+      {/* <header className={s.header}>
         <img src="/deligatr.png" alt="Deligatr" className={s.brandLogo} />
         <span className={s.pipe} aria-hidden="true" />
         <span className={s.headerSub}>Outreach Report</span>
-      </header>
+      </header> */}
       <main className={s.main}>{children}</main>
     </div>
   )
