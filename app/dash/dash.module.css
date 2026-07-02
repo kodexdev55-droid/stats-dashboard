@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  background: #F2F4F7;
+  background: #F0F2F5;
   font-family: var(--font-sora), 'Sora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #0F172A;
 }
@@ -61,11 +61,11 @@
 
 .card {
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid rgba(0,0,0,0.07);
   border-radius: 12px;
   padding: 14px 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06),
-              0 1px 2px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08),
+              0 1px 4px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -73,8 +73,9 @@
 }
 
 .card:hover {
-  border-color: #D1D5DB;
-  box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  border-color: rgba(0,0,0,0.12);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12),
+              0 2px 6px rgba(0,0,0,0.06);
 }
 
 .card:focus-within {
@@ -336,6 +337,31 @@
   width: 5px;
   height: 1.1em;
   border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* LinkedIn "in" badge */
+.linkedinBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #0A66C2;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Envelope icon for Cold Email */
+.sectionIcon {
+  width: 20px;
+  height: 20px;
+  color: #64748B;
   flex-shrink: 0;
 }
 

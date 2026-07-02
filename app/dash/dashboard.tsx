@@ -679,7 +679,7 @@ export function Dashboard() {
       {clientName && <h1 className={s.clientName}>{clientName}</h1>}
 
       <h2 className={s.sectionHeading}>
-        <span className={s.sectionHeadingBar} aria-hidden="true" style={{ background: 'linear-gradient(180deg, #8B5CF6, #EC4899)' }} />
+        <span className={s.linkedinBadge} aria-hidden="true">in</span>
         LinkedIn Outreach
       </h2>
       <LinkedInSection state={linkedin} />
@@ -687,7 +687,10 @@ export function Dashboard() {
       <div className={s.divider} role="separator" />
 
       <h2 className={s.sectionHeading}>
-        <span className={s.sectionHeadingBar} aria-hidden="true" style={{ background: 'linear-gradient(180deg, #34D399, #22D3EE)' }} />
+        <svg className={s.sectionIcon} aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="5" width="16" height="12" rx="2"/>
+          <path d="M2 8l8 5 8-5"/>
+        </svg>
         Cold Email
       </h2>
       <EmailSection state={email} />
